@@ -1,0 +1,21 @@
+NAME: R_34_1x
+MODEL:
+    NAME: "resnet34"        # Change
+    PRETRAINED: True        # Change
+    BATCH_SIZE: 16
+    INPUT_SIZE: 600
+    N_CLASS: 2
+    SAVE_TO: /media/dontgetdown/model_partition/cxr_models
+SOLVER:
+    EPOCH: 10                # Change
+    INIT_LR: 0.005
+    MOMENTUM: 0.9
+    WEIGHT_DECAY: 0.0005
+SCHEDULER:
+    IN_EVERY: [5]             # Change
+    GAMMA: 0.1
+RECORD:
+    LOSS: True
+    AUC: True
+DATA_AUG:
+    STATE: False

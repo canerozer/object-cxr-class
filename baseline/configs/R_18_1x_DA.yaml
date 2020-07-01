@@ -1,0 +1,36 @@
+NAME: R_18_1x_DA
+MODEL:
+    NAME: "resnet18"        # Change
+    PRETRAINED: True        # Change
+    BATCH_SIZE: 16
+    INPUT_SIZE: 600
+    N_CLASS: 2
+    SAVE_TO: /media/dontgetdown/model_partition/cxr_models
+SOLVER:
+    EPOCH: 20                # Change
+    INIT_LR: 0.005
+    MOMENTUM: 0.9
+    WEIGHT_DECAY: 0.0005
+SCHEDULER:
+    IN_EVERY: [10, 15]             # Change
+    GAMMA: 0.1
+RECORD:
+    LOSS: True
+    AUC: True
+DATA_AUG:
+    STATE: True
+    COLOR_JITTER:
+        STATE: True
+        BR: 0.4
+        CON: 0.4
+        SAT: 0.4
+        HUE: 0.1
+    RANDOM_AFFINE:
+        STATE: True
+        DEG: 30
+        TR: 0.1
+        SC_MIN: 0.95
+        SC_MAX: 1.05
+        SH: 0.1
+    RANDOM_HOR_FLIP:
+        STATE: True
